@@ -1,0 +1,27 @@
+.header-fixed {
+        background: #23036b;
+        width: 100%;
+        display: block;
+        height: 62px;
+        border-bottom: 10px solid #ebe9e3;
+    }
+
+.header-logo {
+    float: left;
+    margin-right: right;
+    text-align: right;
+}
+
+.header-logo1 {
+    float: right;
+    font-weight: bold;
+    font-size: larger;
+    color: white;
+    text-align: left;
+    margin-right: 10px;
+    margin-top: 7px;
+}
+
+.header-logo1 span {
+    display: inherit;
+}

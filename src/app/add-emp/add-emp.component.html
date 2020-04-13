@@ -1,0 +1,236 @@
+<h3>Pending for Review</h3>
+<div class="total " *ngFor="let data of data">
+    <div class="col-md-8 ">
+        <div class="applicant-details">
+            <div class="applicant-table">
+                <table (keyup)="calculator($event)" (keyup)="matchingAccount($event)" (keyup)="matchingBankcustId($event)">
+                    <tr>
+                        <td width="30%">ApplicationId </td>
+                        <td width="10%">:</td>
+                        <td width="30%">{{data.applicationid}} </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">Name </td>
+                        <td width="10%">:</td>
+                        <td width="30%">{{data.appl1name}} </td>
+                        <td width="30%" rowspan="2"><img src={{imagesrc}} class="applicant-img" onerror="this.onerror=null; this.src='assets/images/profile.png'"></td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%"> Date of Birth</td>
+                        <td width="10%">:</td>
+                        <td width="30%">{{data.dobdate}}</td>
+                    </tr>
+                 
+                    <tr>
+                        <td width="30%">Mobile</td>
+                        <td width="10%">:</td>
+                        <td width="30%">{{data.mobileno}}</td>
+                    </tr>
+
+                    <tr>
+                        <td width="30%">Home Address</td>
+                        <td width="10%">:</td>
+                        <td width="30%">
+                            {{data.permhouseno+","+ data.permstreetno+"," +data.permlandmark +","+data.permvillcity+","+ data.permdistrict+","+ data.permstate+","+ data.permpincode}}
+                        </td>
+                        <td width="5%">
+                            <img src="assets/images/location.png" class="home_address" height="30px" width="30px" (click)="onnavigateHome()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">Business Address</td>
+                        <td width="10%">:</td>
+                        <td width="30%">
+                            {{data.commhouseno+ ","+data.commstreetno +","+data.commlandmark+ ","+data.commvillcity+  ","+data.commdistrict+  ","+data.commstate+","+ data.commpincode}}
+                        </td>
+
+                        <td width="5%">
+                            <img src="assets/images/location.png" class="business_address" height="30px" width="30px" (click)="onnavigateBusiness()">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Subk Recommendations</th>
+                    </tr>
+                    <td width="30%">Loan Amount </td>
+                    <td width="10%">:</td>
+                    <td width="30%" id="uhRecommendedAmt" value="{{data.uhRecommendedLoanamount}}">Rs.{{data.uhRecommendedLoanamount}}</td>
+
+                    <tr>
+                        <td width="30%">Rate of Interest </td>
+                        <td width="10%">:</td>
+                        <td width="30%" value="{{roi}}">{{roi}}%</td>
+                    </tr>
+                    <tr>
+                        <td width="30%">No.of Months</td>
+                        <td width="10%">:</td>
+                        <td width="30%">{{data.uhrecommendednoofmonths}}</td>
+                    </tr>
+                    <tr>
+                        <td width="30%">EMI</td>
+                        <td width="10%">:</td>
+                        <td width="30%">Rs. {{data.uhrecommendedinstalmentamount}}</td>
+                    </tr>
+                    <tr>
+                        <th>BM Recommendations</th>
+                    </tr>
+                    <tr>
+                        <td width="30%">Loan Amount</td>
+                        <td width="10%">:</td>
+                        <td width="30%"><input type="text" placeholder="Rs." id="loanAmount" maxlength="7" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></td>
+                    </tr>
+                    <tr>
+                        <td width="30%">Rate of Interest</td>
+                        <td width="10%">:</td>
+                        <td width="30%"><input type="hidden" placeholder="" id="RateOfIntrest" value="{{roi}}" readonly>{{roi}}%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="30%">No.of Months</td>
+                        <td width="10%">:</td>
+                        <td width="30%"><input type="text" placeholder="" id="NoOfMonths" required onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="2"></td>
+                    </tr>
+                    <tr>
+                        <td width="35%">EMI</td>
+                        <td width="10%">:</td>
+                        <td width="30%">Rs.<input type="button" placeholder="Rs." id="emiAmt" value="" readonly></td>
+                    </tr>
+
+
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="SavingAccount " value="" [(ngModel)]="showMe"><b>Customer having Saving
+                                Account</b>
+                        </th>
+                    </tr>
+                    <tr *ngIf="showMe">
+                        <td width="30%">Savings Account Number</td>
+                        <td width="10%">:</td>
+                        <td width="30%">
+                            <input type="password" id="savingAccount" value="" required onkeyup="this. value=this.value.replace(/[^\d]/,'')" maxlength="13">
+                        </td>
+                    </tr>
+                    <tr *ngIf="showMe">
+                        <td width="30%">Confirm Savings Account Number</td>
+                        <td width="10%">:</td>
+                        <td width="30%">
+                            <input type="text" id="confirmsavingAccount" value="" required onkeyup="this.value=this.value.replace(/[^\d]/,'')" maxlength="13">
+                            <span id='message'></span>
+                        </td>
+                    </tr>
+                    <tr *ngIf="showMe">
+                        <td width="30%">Bank Customer ID</td>
+                        <td width="10%">:</td>
+                        <td>
+                            <input type="password" id="bankCustId" value="" required maxlength="8" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                        </td>
+                    </tr>
+                    <tr *ngIf="showMe">
+                        <td width="30%">Confirm Bank Customer ID</td>
+                        <td width="10%">:</td>
+                        <td>
+                            <input type="text" id="confirmbankCustId" value="" required maxlength="8" onkeyup="this.value=this.value.replace(/[^\d]/,'')">
+                            <span id='nextMessage'></span>
+                        </td>
+                    </tr>
+
+
+
+                </table>
+            </div>
+
+            <div class="buttons-3">
+                <div class="remarksDiv">
+                    <div class="remarks_text">
+                        <span><textarea placeholder="Write Your Remarks" rows="3" cols="50"
+                                id="remarks"></textarea></span>
+                    </div>
+                    <div class="text_area"></div>
+                </div>
+
+                <div id="value">
+
+                    <button type="button" class="btn btn-success" (click)="getclickedId($event)" id="Approved" value="Approve">Approve</button>
+                    <button type="button" class="btn btn-danger" id="Rejected" value="Reject" (click)="getclickedId($event)" data-target="#modalPopup">Reject</button>
+                    <button type="button" class="btn btn-warning" id="Returned" value="Return" (click)="getclickedId($event)" data-target="#modalPopup">Return</button>
+                </div>
+                <div class="modal fade" id="modalPopup" role="dialog">
+                    <div class="modal-dailog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title"> Do You Want To continue?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal_body_content">
+                                    <img src={{imagesrc}} class="" onerror="this.onerror=null; this.src='assets/images/profile.png'">
+                                </div>
+                                <div class="modal_body_content">
+                                    <div class="left_content">
+                                        ApplicationId:
+                                    </div>
+                                    <div class="right_content">
+                                        {{data.applicationid}}
+                                    </div>
+                                </div>
+                                <div class="modal_body_content">
+                                    <div class="left_content">
+                                        Name:
+                                    </div>
+                                    <div class="right_content">
+                                        {{data.appl1name}}
+                                    </div>
+                                </div>
+                                <div class="modal_body_content">
+                                    <div class="left_content">
+                                        Loan Amount:
+                                    </div>
+                                    <div class="right_content">
+                                        Rs.{{bmLoanAmount}}
+                                    </div>
+                                </div>
+                                <div class="modal_body_content">
+                                    <div class="left_content">
+                                        No of Months:
+                                    </div>
+                                    <div class="right_content">
+                                        {{bmNoOfMonths}}
+                                    </div>
+                                </div>
+                                <div class="modal_body_content">
+                                    <div class="left_content">
+                                        ROI:
+                                    </div>
+                                    <div class="right_content">
+                                        {{roi}}%
+                                    </div>
+                                </div>
+                                <div class="modal_body_content">
+                                    <div class="left_content">
+                                        EMI:
+                                    </div>
+                                    <div class="right_content">
+                                        Rs.{{bmEmi}}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-default" data-dismiss="modal">
+                                    close
+                                </button>
+                                <button class="btn btn-default bank_status" id="{{clickedTargetId}}" (click)="getAllData($event)">
+                                    {{clickedTargetValue}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    

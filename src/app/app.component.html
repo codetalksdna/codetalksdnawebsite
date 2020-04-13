@@ -1,0 +1,12 @@
+<div id="header">
+    <app-header *ngIf="showHead"></app-header>
+</div>
+<div id="sidebar-left">
+    <app-slider *ngIf="showslider"></app-slider>
+</div>
+<div id="main">
+    <router-outlet></router-outlet>
+</div>
+<div id="footer">
+    <app-footer *ngIf="showfooter"></app-footer>
+</div>

@@ -1,0 +1,194 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 6px;
+}
+
+.total {
+    height: 100%;
+    display: block;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.applicant-img {
+    transition: transform 0.80s ease;
+}
+
+.applicant-img:hover {
+    -webkit-transform: scale(2.5);
+    /* or some other value */
+    transform: scale(2.0);
+}
+
+.applicant-details {
+    height: 550px;
+}
+
+.download-links {
+    height: 550px;
+}
+
+.applicant-table {
+    height: 600px;
+    overflow-y: hidden;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+.applicant-img {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+    transform: translate(2%, 2%);
+}
+
+.applicant-details {
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    background-color: #fff;
+}
+
+.download-body {
+    text-align: left;
+    padding: 25px;
+    height: 480px;
+    overflow-y: scroll;
+}
+
+.download-links {
+    box-shadow: 0 0 13px 0 rgba(82, 63, 105, .05);
+    background-color: #fff;
+    padding: 0;
+}
+
+.buttons-3 #modalPopup .modal-footer #Approved {
+    float: right;
+    background-color: #045a04;
+    color: #fff
+}
+
+.buttons-3 #modalPopup .modal-footer #Rejected {
+    background-color: #d9534f;
+    color: #fff
+}
+
+.buttons-3 #modalPopup .modal-footer #Returned {
+    background-color: #f0ad4e;
+    color: #fff
+}
+
+.buttons-3 button {
+    margin-right: 15px;
+    padding: 4px 50px;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.download-header h3 {
+    text-align: left;
+    padding: 0 25px;
+}
+
+.download-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.download-file {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #a9a6a6;
+}
+
+.download-file.first-file {
+    padding-top: 0;
+}
+
+.download-file .fa-file-pdf-o {
+    font-size: 25px;
+    color: red;
+    margin-right: 7px;
+}
+
+.download-file a {
+    font-size: 14px;
+    color: #000;
+}
+
+.remarksDiv {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#emiAmt {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.custhavingacc {
+    font-weight: 500;
+}
+
+.modal-content {
+    margin: 0 auto;
+    top: 50%;
+    position: absolute;
+    width: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modal-content button {
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.left_content {
+    font-weight: 600;
+    margin-right: 10px;
+    display: inline-block;
+    width: 15%;
+    text-align: left;
+}
+
+.modal-footer button {
+    padding: 4px 50px;
+}
+
+.right_content {
+    display: inline-block;
+    width: 21%;
+    text-align: left;
+}
+
+.modal_body_content {
+    margin-bottom: 10px;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal_body_content img {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    right: 50px;
+    top: 4px;
+}
+.download-file span {
+    padding: 20px 20px 20px 0px;
+}
+.business_address, .home_address {
+    cursor: pointer;
+}
