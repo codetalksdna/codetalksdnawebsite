@@ -1,0 +1,57 @@
+<h2><b>Master Bank Table</b></h2>
+<div class="table-content">
+  <div class="col-md-12">
+
+    <div class="items_per_page">
+      <span class="items_per_page_text">Items Per Page</span>
+      <select id="PerPage" class="" [(ngModel)]="pageSize">
+        <option [ngValue]="5">5</option>
+        <option [ngValue]="25">25</option>
+        <option [ngValue]="50">50</option>
+        <option [ngValue]="100">100</option>
+      </select>
+    </div>
+
+    <div class="search_div">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input class="search_icon" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="Search.....">
+    </div>
+  </div>
+
+  <table class="table table-striped " id="customers">
+    <nav>
+      <input type="button" value="Add New" (click)="getnew($event)">
+
+    </nav>
+
+    <tr>
+     <th>Employee Id</th>
+      <th>Employee Name</th>
+      <th>Designation</th>
+      <th>Report To</th>
+      <th>Address </th>
+      <th>State</th>
+      <th>Status</th>
+      <th>Created Date Time</th>
+      <!-- <th>Edit Button</th> -->
+    </tr>
+
+    <tr class="pointer" *ngFor="let item of datatables | filter:searchText | paginate: { itemsPerPage: pageSize, currentPage: p }; let i = index">
+
+      <td>{{item.empid}}</td>
+      <td>{{ item.empname }}</td>
+      <td>{{ item.designation}}</td>
+      <td>{{ item.report_to }}</td>
+      <td>{{ item.address}}</td>
+      <td>{{ item.state}}</td>
+      <td>{{ item.status}}</td>
+      <td>{{item.created_datetime}}</td>
+      <!-- <td><input type="button" value="Edit or Delete" (click)="fetchData($event)" id="{{item.empid}}"></td> -->
+    </tr>
+
+  </table>
+  <div class="paginateDiv">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  

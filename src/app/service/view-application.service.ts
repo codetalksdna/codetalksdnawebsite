@@ -4,21 +4,50 @@ import { Injectable, OnInit } from '@angular/core';
   providedIn: 'root'
 })
 export class ViewApplicationService implements OnInit {
-  private pendingCustomerData: any = []
-  private datatables: any = []
-
+  public pendingCustomerData: any = []
+  public datatables: any = []
+  public empdetails:any = []
+  public bankbranchdatas: any = []
+  public empunitdatas: any = []
+  public masterbankdatas:any = []
+  public masterunitdatas: any = []
+  public regionalofficedatas: any = []
   constructor() { }
   ngOnInit() { }
 
-  pendingViewdata(pendingCustomerData: any) {
-    this.pendingCustomerData = pendingCustomerData;
-    sessionStorage.setItem('pendingCustomerData', JSON.stringify(this.pendingCustomerData))
+ 
+
+  empdetailsdata(empdetails: any) {
+    this.empdetails = empdetails;
+    sessionStorage.setItem('empdetails', JSON.stringify(this.empdetails))
+    
+
+  }
+  bankbranchdata(bankbranchdata: any) {
+    this.bankbranchdata = bankbranchdata;
+    sessionStorage.setItem('bankbranchdata', JSON.stringify(this.bankbranchdatas))
   }
 
-  datatablesViewData(datatables: any) {
-    this.datatables = datatables;
-    sessionStorage.setItem('datatablesViewData', JSON.stringify(this.datatables))
+  empunitdata(empunitdata: any) {
+    this.empunitdata = empunitdata;
+    sessionStorage.setItem('empunitdata', JSON.stringify(this.empunitdatas))
     
+
+  }
+  masterbankdata(masterbankdata: any) {
+    this.masterbankdata = masterbankdata;
+    sessionStorage.setItem('masterbankdata', JSON.stringify(this.masterbankdatas))
+  }
+
+  masterunitdata(masterunitdata: any) {
+    this.masterunitdata = masterunitdata;
+    sessionStorage.setItem('masterunitdata', JSON.stringify(this.masterunitdatas))
+    
+
+  }
+  regionalofficedata(regionalofficedata: any) {
+    this.regionalofficedata = regionalofficedata;
+    sessionStorage.setItem('regionalofficedata', JSON.stringify(this.regionalofficedatas))
 
   }
 }

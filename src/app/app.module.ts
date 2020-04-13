@@ -18,9 +18,17 @@ import { RouterModule } from '@angular/router';
 import { UserIdleModule } from 'angular-user-idle';
 import { MyDatePickerModule } from 'mydatepicker';
 import { ChartsModule } from 'ng2-charts';
-import { DatatablesComponent } from './admin/datatables/datatables.component';
-import { AddEmpComponent } from './add-emp/add-emp.component';
 import { UpdateComponent } from './admin/update/update.component';
+import{AddempComponent} from './admin/addemp/addemp.component';
+import { EmpdetailsComponent } from './admin/empdetails/empdetails.component';
+import { BankbranchComponent } from './admin/bankbranch/bankbranch.component';
+import { EmpunitComponent } from './admin/empunit/empunit.component';
+import { MasterbankComponent } from './admin/masterbank/masterbank.component';
+import { MasterunitComponent } from './admin/masterunit/masterunit.component';
+import { RegionalofficeComponent } from './admin/regionaloffice/regionaloffice.component';
+import { NewbankmasterComponent } from './admin/newbankmaster/newbankmaster.component';
+import { NewroComponent } from './admin/newro/newro.component';
+import { NewunitComponent } from './admin/newunit/newunit.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +37,17 @@ import { UpdateComponent } from './admin/update/update.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    DatatablesComponent,
-    AddEmpComponent,
     UpdateComponent,
+    AddempComponent,
+    EmpdetailsComponent,
+    BankbranchComponent,
+    EmpunitComponent,
+    MasterbankComponent,
+    MasterunitComponent,
+    RegionalofficeComponent,
+    NewbankmasterComponent,
+    NewroComponent,
+    NewunitComponent
   ],
   imports: [
     MyDatePickerModule,

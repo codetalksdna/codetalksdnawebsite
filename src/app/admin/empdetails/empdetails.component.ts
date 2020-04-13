@@ -3,15 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { AuthPassService } from 'src/app/service/auth-pass.service';
 import { Router } from '@angular/router';
 import { ViewApplicationService } from 'src/app/service/view-application.service';
-import * as $ from 'jquery';
 @Component({
-  selector: 'app-datatables',
-  templateUrl: './datatables.component.html',
-  styleUrls: ['./datatables.component.css']
+  selector: 'app-empdetails',
+  templateUrl: './empdetails.component.html',
+  styleUrls: ['./empdetails.component.css']
 })
-export class DatatablesComponent implements OnInit {
+export class EmpdetailsComponent implements OnInit {
 
- 
   constructor(private http: HttpClient, 
     private rejectedLoans: AuthPassService,
     private viewApplication: ViewApplicationService,
@@ -37,16 +35,10 @@ export class DatatablesComponent implements OnInit {
 checkedItems=[]
 
 
-getevent(event){
-  $(document).ready(function() {
-   let strings = $('#selectall').click(function(){
-    });
-    console.log(strings)
-    let string = $('.option').prop("checked", true);
-});
-}
 
-
+getnew(event) {
+      this.router.navigate(['/addemp']);
+    }
   getData(event) {
     const base_URL = 'http://localhost:8855/getAllEmployees?pageNumber=0&size=5'
     this.http.get(base_URL, {
@@ -57,6 +49,7 @@ getevent(event){
       this.datatables = this.datatables[0].object 
     })
   }
+
   fetchData(event) {
     this.datatablesData = []
     var selected_id = event.currentTarget.id
@@ -64,10 +57,7 @@ getevent(event){
       if (selected_id == data.empid) {
         this.datatablesData.push(data)
         console.log(data)
-        this.viewApplication.datatablesViewData(this.datatablesData)
-    alert("Button has been clicked")
-
-
+        this.viewApplication.empdetailsdata(this.datatablesData)
         this.router.navigate(['/update']);
       }
     })

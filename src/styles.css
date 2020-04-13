@@ -87,19 +87,19 @@ outline: none;
 }
 #PerPage option:hover { background: red; }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #4cae50;
+    color: rgb(6, 1, 58);;
   }
 .search_icon::placeholder {
-    color:#4cae50;
+    color:rgb(6, 1, 58);;
     opacity: 1; /* Firefox */
   }
   
  .search_icon:-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: #4cae50;
+   color: rgb(6, 1, 58);;
   }
   
   .search_icon::-ms-input-placeholder { /* Microsoft Edge */
-   color: #4cae50;
+   color: rgb(6, 1, 58);;
   }
   .items_per_page_text {
       font-size: 15px;
@@ -109,7 +109,7 @@ outline: none;
       text-align: right;
   }
   .ngx-pagination .current {
-      background: #4cae50 !important;
+      background: rgb(6, 1, 58); 
       border-radius: 25px;
   }
   .remarksDiv .text_area{

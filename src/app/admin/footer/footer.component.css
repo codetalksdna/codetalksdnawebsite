@@ -15,7 +15,7 @@ footer {
 }
 
 .footer-distributed {
-    background:  #23036b;
+    background-image: linear-gradient(to right, #021957, #021957,#021957, #740730, #740730, #700508);
     ;
     box-sizing: content-box;
     width: 100%;
@@ -29,7 +29,7 @@ footer {
 /* Footer links */
 
 .footer-distributed .footer-center i {
-    background: #23036b;
+    background-image: linear-gradient(to right, #021957, #021957,#021957, #740730, #740730, #700508);
 
     color: white;
     font-size: 25px;

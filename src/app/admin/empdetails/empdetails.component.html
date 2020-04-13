@@ -1,4 +1,4 @@
-<h2>Employee Management Table</h2>
+<h2><b>Employee Details Table</b></h2>
 <div class="table-content">
   <div class="col-md-12">
 
@@ -21,7 +21,7 @@
 
   <table class="table table-striped " id="customers">
     <nav>
-      <input type="button" value="Add New">
+      <input type="button" value="Add New" (click)="getnew($event)">
 
     </nav>
 
@@ -34,7 +34,6 @@
       <th>State</th>
       <th>Status</th>
       <th>Created Date Time</th>
-      <th>Edit Button</th>
     </tr>
 
     <tr class="pointer" *ngFor="let item of datatables | filter:searchText | paginate: { itemsPerPage: pageSize, currentPage: p }; let i = index">
@@ -47,11 +46,12 @@
       <td>{{ item.state}}</td>
       <td>{{ item.status}}</td>
       <td>{{item.created_datetime}}</td>
-      <td><input type="button" value="Edit or Delete" (click)="fetchData($event)" id="{{item.empid}}"></td>
     </tr>
-  <!-- <div class="paginateDiv">
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-  </div> -->
+
   </table>
+  <div class="paginateDiv">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ </div> 
+
   
   

@@ -1,9 +1,9 @@
 .header-fixed {
-        background: #23036b;
+    background-image: linear-gradient(to right, #021957, #021957,#021957, #740730, #740730, #700508);
+
         width: 100%;
         display: block;
         height: 62px;
-        border-bottom: 10px solid #ebe9e3;
     }
 
 .header-logo {
