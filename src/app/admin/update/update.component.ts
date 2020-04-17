@@ -51,6 +51,7 @@ export class UpdateComponent implements OnInit {
   businesslattitude: number;
   businesslongitude: number;
   datatablesViewData:any
+  regionalofficedata:any
   constructor(
     private http: HttpClient,
     private router: Router, ) { }
@@ -58,6 +59,7 @@ export class UpdateComponent implements OnInit {
     this.id = JSON.parse(sessionStorage.getItem('username'))
     this.common_IP = JSON.parse(sessionStorage.getItem('commonIP'))
     this.datatablesViewData = JSON.parse(sessionStorage.getItem('datatablesViewData'))
+    this.regionalofficedata = JSON.parse(sessionStorage.getItem('regionalofficedata'))
     }
 
 

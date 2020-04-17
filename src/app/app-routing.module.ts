@@ -13,6 +13,7 @@ import { MasterunitComponent } from './admin/masterunit/masterunit.component';
 import {NewroComponent} from './admin/newro/newro.component'
 import {NewunitComponent}from './admin/newunit/newunit.component'
 import { NewbankmasterComponent } from './admin/newbankmaster/newbankmaster.component';
+import { NewbranchComponent } from './admin/newbranch/newbranch.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path: 'masterunit',component:MasterunitComponent},
   {path: 'newro',component:NewroComponent},
   {path:'newbankmaster',component:NewbankmasterComponent},
-  {path:'newunit',component:NewunitComponent}
+  {path:'newunit',component:NewunitComponent},
+  {path:'newbranch',component:NewbranchComponent}
 
 ];
 

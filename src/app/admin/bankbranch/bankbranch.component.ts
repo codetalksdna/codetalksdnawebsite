@@ -45,7 +45,7 @@ getevent(event){
 });
 }
 getnew(event) {
-      this.router.navigate(['/addemp']);
+      this.router.navigateByUrl('/newbranch');
     }
   getData(event) {
     const base_URL = 'http://localhost:8855/getAllBranches?pageNumber=0&size=5'

@@ -28,7 +28,8 @@ import { MasterunitComponent } from './admin/masterunit/masterunit.component';
 import { RegionalofficeComponent } from './admin/regionaloffice/regionaloffice.component';
 import { NewbankmasterComponent } from './admin/newbankmaster/newbankmaster.component';
 import { NewroComponent } from './admin/newro/newro.component';
-import { NewunitComponent } from './admin/newunit/newunit.component'
+import { NewunitComponent } from './admin/newunit/newunit.component';
+import { NewbranchComponent } from './admin/newbranch/newbranch.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { NewunitComponent } from './admin/newunit/newunit.component'
     RegionalofficeComponent,
     NewbankmasterComponent,
     NewroComponent,
-    NewunitComponent
+    NewunitComponent,
+    NewbranchComponent
   ],
   imports: [
     MyDatePickerModule,

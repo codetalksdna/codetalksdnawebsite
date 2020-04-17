@@ -49,7 +49,8 @@ getnew(event) {
       this.router.navigate(['/addemp']);
     }
   getData(event) {
-    const base_URL = 'http://localhost:8855/getAllUnits?pageNumber=0&size=5'
+    const base_URL = ''
+    // const base_URL = 'http://localhost:8855/getAllUnits?pageNumber=0&size=5'
     // const base_URL = 'http://localhost:8855/getAllEmployees?pageNumber=0&size=5'
     this.http.get(base_URL, {
     }).subscribe((data) => {

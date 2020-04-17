@@ -62,11 +62,11 @@ getnew(event) {
     this.datatablesData = []
     var selected_id = event.currentTarget.id
     this.datatables.forEach(data => {
-      if (selected_id == data.empid) {
+      if (selected_id == data.id) {
         this.datatablesData.push(data)
         console.log(data)
         this.viewApplication.regionalofficedata(this.datatablesData)
-        this.router.navigate(['/update']);
+        this.router.navigateByUrl('/update');
       }
     })
   }
