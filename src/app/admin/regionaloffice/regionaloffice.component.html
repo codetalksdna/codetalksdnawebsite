@@ -21,8 +21,8 @@
   <br>
   <br>
 <div class="addNew_with_modal">
-  <button type="button" class="btn btn-info add_new" data-toggle="modal" data-target="#myModal">Add New RO</button>
-  <div id="myModal" class="modal fade" role="dialog">
+  <button type="button" class="btn btn-info add_new" (click)="createNewModal($event)">Add New RO</button>
+  <div id="createModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 <br>
 <br>
@@ -34,14 +34,26 @@
         </div>
         <div class="modal-body">
           <div class="emp_details">
-            <label for="RoName">RO Name</label>
+            <label for="CreateRoName">RO Name</label>
             
-              <input id="RoName" type="text" class="form-control" placeholder="Enter RO Name">
+              <input id="CreateRoName" type="text" class="form-control" placeholder="Enter RO Name">
             
           </div>
           <div class="emp_details">
-            <label for="status">Select Status</label>
-            <select class="form-control" id="status">
+            <label for="CreateLatitude">Latitude</label>
+            
+              <input id="CreateLatitude" type="text" class="form-control">
+            
+          </div>
+          <div class="emp_details">
+            <label for="CreateLongitude">Longitude</label>
+            
+              <input id="CreateLongitude" type="text" class="form-control">
+            
+          </div>
+          <div class="emp_details">
+            <label for="Createstatus">Select Status</label>
+            <select class="form-control" id="Createstatus">
               <option class="active">Active</option>
               <option class="inactive">InActive</option>
             </select>
@@ -75,7 +87,7 @@
               <input id="UpdateRoName" type="text" class="form-control">
             
           </div>
-          <!-- <div class="emp_details">
+          <div class="emp_details">
             <label for="UpdateLatitude">Latitude</label>
             
               <input id="UpdateLatitude" type="text" class="form-control">
@@ -86,7 +98,7 @@
             
               <input id="UpdateLongitude" type="text" class="form-control">
             
-          </div> -->
+          </div>
           
           <div class="emp_details">
             <label for="Updatestatus">Select Status</label>
@@ -98,7 +110,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="updateDatas($event)">Update</button>
+          <button type="button" class="btn btn-primary" (click)="updateData($event)">Update</button>
         </div>
       </div>
 
@@ -127,7 +139,7 @@
       <td>{{ item.longitude}}</td>
       <td>{{ item.status}}</td>
       <td>{{item.created_datetime}}</td>
-      <td><input type="button" value="Update RO Data" (click)="updateDatas($event)" id="{{item.id}}" ></td>
+      <td><input type="button" value="Update RO Data" (click)="updateDataModal($event)" id="{{item.id}}" ></td>
     </tr>
 
   </table>

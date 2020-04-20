@@ -16,6 +16,14 @@ export class RegionalofficeComponent implements OnInit {
     private rejectedLoans: AuthPassService,
     private viewApplication: ViewApplicationService,
     private router: Router) {
+    //   if (navigator)
+    // {
+    // navigator.geolocation.getCurrentPosition( pos => {
+    //     this.lng = +pos.coords.longitude;
+    //     this.lat = +pos.coords.latitude;
+    //     console.log(this.lat, this.lng)
+    //   });
+    // }
 
   }
   datatables: any = []
@@ -25,6 +33,8 @@ export class RegionalofficeComponent implements OnInit {
   status: any
   latitude: any
   longitude: any
+  lat: any;
+  lng: any;
 
 
   ngOnInit() {
@@ -39,7 +49,7 @@ export class RegionalofficeComponent implements OnInit {
   datatablesData = [];
   customerid: any
   checkedItems = []
-
+  updatetargetId:number;
 
   getevent(event) {
     $(document).ready(function () {
@@ -53,7 +63,7 @@ export class RegionalofficeComponent implements OnInit {
     this.router.navigate(['/newro']);
   }
   getData(event) {
-    const base_URL = 'http://202.65.144.147:8855/getAllROs?pageNumber=0&size=5'
+    const base_URL = this.common_IP + '/getAllROs?pageNumber=0&size=5'
     // const base_URL = this.common_IP+'/getAllROs?pageNumber=0&size=5'
     this.http.get(base_URL, {
     }).subscribe((data) => {
@@ -63,21 +73,31 @@ export class RegionalofficeComponent implements OnInit {
       this.datatables = this.datatables[0].object
     })
   }
-  updateData(event) {
-    $('#updateModal').modal('toggle');
-  }
- 
-  createnew(event) {
-    $('#addNew_with_modal').modal('toggle');
-    const base_URL = 'http://localhost:8855/createRO'
-    // const base_URL = this.common_IP + '/createRO'
-    this.RoName = (<HTMLInputElement>document.getElementById("RoName")).value;
-    this.status = (<HTMLInputElement>document.getElementById("status")).value;
-    this.latitude = 72.6;
-    this.longitude = 13.8;
 
-    console.log(this.RoName)
-    console.log(this.status)
+  createNewModal(event) {
+    $('#createModal').modal('toggle');
+    if (navigator) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        this.lng = +pos.coords.longitude;
+        this.lat = +pos.coords.latitude;
+        console.log(this.lat, this.lng)
+        var lat = (<HTMLInputElement>document.getElementById("CreateLatitude")).value = this.lat
+        var lng = (<HTMLInputElement>document.getElementById("CreateLongitude")).value = this.lng
+      });
+
+    }
+
+  }
+  createnew(event) {
+    const base_URL = this.common_IP + '/createRO'
+    // const base_URL = this.common_IP + '/createRO'
+    this.RoName = (<HTMLInputElement>document.getElementById("CreateRoName")).value;
+    this.status = (<HTMLInputElement>document.getElementById("Createstatus")).value;
+    this.latitude = (<HTMLInputElement>document.getElementById("CreateLatitude")).value;
+    this.longitude = (<HTMLInputElement>document.getElementById("CreateLongitude")).value;
+    if(this.RoName == '') {
+      alert('Please enter the RO Name')
+    } else {
     this.http.post(base_URL, {
       latitude: this.latitude,
       longitude: this.longitude,
@@ -93,28 +113,35 @@ export class RegionalofficeComponent implements OnInit {
 
     })
   }
-
-  updateDatas(event) {
+  }
+  updateDataModal(event) {
     $('#updateModal').modal('toggle');
-    const base_URL = "http://localhost:8855/updateROdata"
-
     this.datatables.forEach(item => {
-      var targetId = event.target.id
+      this.updatetargetId = event.target.id
+      if (item.id == this.updatetargetId) {
+        console.log(item)
+      var roName = (<HTMLInputElement>document.getElementById("UpdateRoName")).value = item.roname
+      var latitude = (<HTMLInputElement>document.getElementById("UpdateLatitude")).value = item.latitude
+      var longitude = (<HTMLInputElement>document.getElementById("UpdateLongitude")).value = item.longitude
+        var status = (<HTMLInputElement>document.getElementById("Updatestatus")).value = item.status
 
-      if (item.id == targetId) {
-        this.RoName = (<HTMLInputElement>document.getElementById("UpdateRoName")).value
-        this.status = (<HTMLInputElement>document.getElementById("Updatestatus")).value
-        this.latitude=73.6,
-        this.longitude=38.4
-        console.log(this.RoName)
-        console.log(this.status)
-       
+        console.log(status)
+      }
+    })
+  }
+
+  updateData(event) {
+    const base_URL = this.common_IP+"/updateROdata"
+    var roName = (<HTMLInputElement>document.getElementById("UpdateRoName")).value;
+    var latitude = (<HTMLInputElement>document.getElementById("UpdateLatitude")).value;
+    var longitude = (<HTMLInputElement>document.getElementById("UpdateLongitude")).value;
+      var status = (<HTMLInputElement>document.getElementById("Updatestatus")).value
        this.http.post(base_URL, {
-          id: event.target.id,
-          latitude: this.latitude,
-          longitude: this.longitude,
-          roname: this.RoName,
-          status: this.status
+          id: this.updatetargetId,
+          latitude: latitude,
+          longitude: longitude,
+          roname: roName,
+          status: status
 
         }).subscribe(data => {
           console.log(data['status'])
@@ -123,8 +150,5 @@ export class RegionalofficeComponent implements OnInit {
             window.location.reload();
           }
         })
-
       }
-    });
-  }
 }
