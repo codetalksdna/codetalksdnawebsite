@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   showHead = true
   showslider = true
   showfooter = true;
-  public common_ip :any = 'http://202.65.144.147:8985';
+  public common_ip :any = 'http://202.65.144.147:8855';
   constructor(private router: Router, private userIdle: UserIdleService) {
 
     router.events.forEach((event) => {

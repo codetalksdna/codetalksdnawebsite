@@ -19,6 +19,8 @@ export class MasterbankComponent implements OnInit {
   datatables  : any = []
   selectedValue:any=[]
   common_IP :any;
+  bankname:any
+  productname:any
   
 
   ngOnInit() {
@@ -34,7 +36,31 @@ export class MasterbankComponent implements OnInit {
   customerid:any
 checkedItems=[]
 
+ 
+createnew(event) {
+  $('#addNew_with_modal').modal('toggle');
+  const base_URL = 'http://localhost:8855/createBankMaster'
+  // const base_URL = this.common_IP + '/createRO'
+  this.bankname = (<HTMLInputElement>document.getElementById("bankname")).value;
+  this.productname = (<HTMLInputElement>document.getElementById("productname")).value;
 
+
+  console.log(this.bankname)
+  console.log(this.productname)
+  this.http.post(base_URL, {
+   
+    roname: this.bankname,
+    status: this.productname
+
+  }).subscribe(data => {
+    console.log(data['status'])
+    if (data['status'] == '00') {
+      alert("Data Created Successfully")
+      window.location.reload();
+    }
+
+  })
+}
 getevent(event){
   $(document).ready(function() {
    let strings = $('#selectall').click(function(){
@@ -47,7 +73,7 @@ getnew(event) {
       this.router.navigate(['/newbankmaster']);
     }
   getData(event) {
-    const base_URL = 'http://localhost:8855/getAllEmployees?pageNumber=0&size=5'
+    const base_URL = ''
     this.http.get(base_URL, {
     }).subscribe((data) => {
       console.log(base_URL)
@@ -57,6 +83,7 @@ getnew(event) {
     })
   }
 
+  
   fetchData(event) {
     this.datatablesData = []
     var selected_id = event.currentTarget.id

@@ -8,7 +8,6 @@
         <option [ngValue]="5">5</option>
         <option [ngValue]="25">25</option>
         <option [ngValue]="50">50</option>
-        <option [ngValue]="100">100</option>
       </select>
     </div>
 
@@ -19,47 +18,105 @@
     </div>
   </div>
 
-  <table class="table table-striped " id="customers">
-    <nav>
-      <input type="button" value="Add New" (click)="getnew($event)">
+<div class="addNew_with_modal">
+  <button type="button" class="btn btn-info add_new" data-toggle="modal" data-target="#myModal">Add New Branch</button>
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    </nav>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create New Branch</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="emp_details">
+            <label for="solid">SolId</label>
+            
+              <input id="solid" type="text" class="form-control" placeholder="Enter SolId">
+            
+          </div>
+          <div class="emp_details">
+            <label for="state">State</label>
+            
+              <input id="state" type="text" class="form-control" placeholder="Enter State">
+            
+          </div>
+          <div class="emp_details">
+            <label for="branchname">Branch Name</label>
+            
+              <input id="branchname" type="text" class="form-control" placeholder="Enter Branch Name">
+            
+          </div>
+
+          <div class="emp_details">
+            <label for="bankid">Bank Name</label>
+            
+              <input id="bankid" type="text" class="form-control" placeholder="Enter BankId">
+            
+          </div>
+          <div class="emp_details">
+            <label for="unitid">Unit Name</label>
+            
+              <input id="unitid" type="text" class="form-control" placeholder="Enter UnitId">
+            
+          </div>
+          <div class="emp_details">
+            <label for="roid">RO Name</label>
+            
+              <input id="roid" type="text" class="form-control" placeholder="Enter RoId">
+            
+          </div>
+        
+          <div class="emp_details">
+            <label for="status">Select Status</label>
+            <select class="form-control" id="status">
+              <option class="active">Active</option>
+              <option class="inactive">InActive</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="createnew($event)">Create</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <table class="table table-striped " id="customers">
+
 
     <tr>
-     <th>Employee Id</th>
+      <th>Employee Id</th>
       <th>SolId</th>
-      <th>Branch Name</th>
+      <th>Employee Name</th>
       <th>State</th>
-      <th>Longitude </th>
-      <th>Latitude</th>
-      <th>BankId</th>
+      <th>Bank Id</th>
       <th>Unit Id</th>
       <th>RoId</th>
-      <th>Status</th>
+      <th>Status </th>
       <th>Created Date Time</th>
-      <!-- <th>Edit Button</th> -->
     </tr>
 
-    <tr class="pointer" *ngFor="let item of datatables | filter:searchText | paginate: { itemsPerPage: pageSize, currentPage: p }; let i = index">
+    <tr
+      *ngFor="let item of datatables | filter:searchText | paginate: { itemsPerPage: pageSize, currentPage: p }; let i = index">
 
       <td>{{item.id}}</td>
       <td>{{ item.solid }}</td>
-      <td>{{ item.branchname}}</td>
-      <td>{{ item.state }}</td>
-      <td>{{ item.longitude}}</td>
-      <td>{{ item.latitude}}</td>
-      <td>{{ item.bankid}}</td>
-      <td>{{item.unitid}}</td>
-      <td>{{ item.roid}}</td>
+      <td>{{ item.branchname }}</td>
+      <td>{{ item.state}}</td>
+      <td>{{ item.bankid }}</td>
+      <td>{{ item.unitid }}</td>
+      <td>{{ item.roid }}</td>
       <td>{{ item.status}}</td>
       <td>{{item.created_datetime}}</td>
-      <!-- <td><input type="button" value="Edit or Delete" (click)="fetchData($event)" id="{{item.empid}}"></td> -->
     </tr>
-  
+
   </table>
-  
-  
   <div class="paginateDiv">
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
- </div> 
- 
+  </div>

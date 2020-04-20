@@ -1,6 +1,6 @@
 #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
     background-color: #021957;
     color: white;
@@ -10,8 +10,35 @@ input[type=button] {
     background-color: #021957;
     border: none;
     color: white;
-    padding: 10px 10px;
+    padding: 08px 08px;
     text-decoration: none;
     margin: 2px 2px;
+  }
+.emp_details {
+    margin-bottom: 0px;
+}
+  .emp_details label {
+      width: 100%;
+      text-align: center;
+  }
+  .emp_details input, .emp_details select {
+      width: 50%;
+      margin: 0 auto;
+  }
+  .addNew_with_modal .modal-dialog, .update_with_modal .modal-dialog{
+      width: 450px;
+      position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-70%) !important;
+  }
+  .addNew_with_modal {
+      text-align: left;
+      margin-bottom: 15px;
+  }
+  .addNew_with_modal .add_new {
+      background-color: #021957;
+      border-color: #021957;
+      padding: 10px 30px;
   }
  
